@@ -1,0 +1,20 @@
+!SUBJECT
+'${game.name}' last invite sent
+!PLAIN
+The last invite reminder was sent for this game.  The game will be 
+automatically started one day from now, or cancelled if not enough
+players joined.  If you wish to provide more time, go to the admin page
+and increase the days till autostart count down.
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">The last invite reminder was sent for this game.</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+The game will automatically start one day from now, or be cancelled if not enough players have joined. 
+</p>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+If you wish to provide some more time for players to join, you can go to the Game Settings and increase the days until the game starts.
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 

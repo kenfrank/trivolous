@@ -1,0 +1,321 @@
+/*
+Title: "Trivolous.com" screen styles
+Date Modified: 3/19/2015
+Date Created: 1/22/2015
+--
+Table of Contents:
+	layout
+	navigation
+	typography
+	alignment
+*/
+
+/* layout
+------------------------------------- */
+html, body {
+	margin: 0;
+	padding: 0;
+	}
+
+body {
+	background: #fff;
+	padding: 0;
+	} 
+ 
+#welcome, 
+#footer {
+	background: #e3ef6b url(../img/backgrounds/white-to-transparent-gradient.png) 0 -50px repeat-x; /* rgb(227,239,107) //e6e986 */
+	margin-bottom: 0;
+	}
+
+.container {
+	max-width: 960px !important;
+	}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+	}
+
+#welcome #logo {
+	width: 500px;
+	max-width: 500px;
+	min-width: 200px;
+	height: auto;
+	}
+
+.well .form {
+	margin: 25px auto;
+	}
+
+.theme-dark {
+	box-shadow: 3px 7px 5px rgba(0,0,0,0.25);
+	background: #3d90c6 url(../img/backgrounds/white-to-transparent-gradient.png) 0 -80px repeat-x; /* #3d90c6 */
+	border: none;
+	border-radius: 15px;
+	color: #fff;
+	text-shadow: none;
+	}
+
+.nav-tabs > li > a {
+	color: #fff;
+	}
+
+.nav-tabs > li > a:hover {
+	background-color: rgba(255,255,255,0.45);
+	}
+
+	
+.theme-dark .btn-primary {
+	/* 
+	padding: 10px 5px;
+	font-size: 22px;
+	*/
+	width: 100%;
+	color: #000;
+	text-shadow: 1px 1px 1px rgba(255,255,255,.9);
+	background: #e2ec6b url(../img/backgrounds/white-to-transparent-gradient.png) 0 -50px repeat-x;
+	border-color: rgba(255,255,255,0.15);
+	box-shadow: inset 0 0 25px rgba(0,0,0,.15);
+	}
+
+.theme-dark .btn-primary:hover {
+	background-color: #e8f889; 
+	}
+
+.btn-facebook {
+	display: block;
+	margin: 25px auto !important;
+	background-color: #365b98;
+	color: #fff;
+	}
+
+.theme-bg-blue {
+	background-color: #498fc6;
+	color: #fff;
+	}
+
+.landing-row-b, 
+#how-it-works, 
+#player-reviews {
+	background: #f5f5f5 url(../img/backgrounds/white-to-transparent-gradient.png) 0 -50px repeat-x; //#a4c3c7; // #5692cd;
+	min-height: 480px;
+ 	}
+
+#player-reviews {
+	background-image: url(../img/backgrounds/friends-playing-trivolous-game.jpg);
+	background-attachment: scroll;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+	box-shadow: inset 0 0 200px rgba(144,144,144,.95); 
+	}
+
+.section {
+    padding: 75px 0 115px;
+	}
+	
+.landing-row-c img {
+	width: 100%;
+	}
+
+footer {
+    padding: 50px 0  75px;
+	}
+
+hr {
+	margin: 25px auto;
+	border-top: 2px solid rgba(0,0,0,0.15);
+	border-bottom: 2px solid rgba(255,255,255,0.75);
+	}
+
+.theme-bg-blue hr {
+	border-top: 2px solid rgba(0,0,0,0.25);
+	border-bottom: 2px solid rgba(255,255,255,0.25);
+	}
+
+.image-container {
+	margin: 15px auto;
+	display: block;
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	background-color: #ccc;
+	}
+
+
+	
+/* typography
+------------------------------------- */
+body {
+	font: normal 16px/1.4em "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+
+h1 {
+	/* font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif; */
+	font-family: 'Coustard', Georgia, serif;
+	font-size: 52px;
+	color: #666666;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(255,255,255,.9);
+	}	
+	
+.tagline-and-desc h1 {
+	font-family: 'Coustard', Georgia, serif;
+	color: #498fc6;
+	font-size: 58px;
+	text-align: left;
+	text-shadow: 1px 1px 1px rgba(255,255,255,.9);
+	margin-bottom: .5em;
+	}
+
+.tagline-and-desc p {
+	font-size: 36px;
+	line-height: 1.25em;
+	}
+
+.theme-bg-blue h1:first-of-type {
+	color: #f5f5f5;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.9);
+	}
+
+blockquote {
+	padding: 25px;
+	margin: 35px auto;
+	font-style: italic;
+	border: none;
+	border-radius: 50px;
+	background: rgba(255,255,255,0.85);
+	quotes: "\201C""\201D""\2018""\2019";
+	}
+    
+blockquote:before{
+	color: #3d90c6;
+	content:open-quote;
+	font-size: 4em;
+	line-height: .1em;
+	margin-right: .25em;
+	vertical-align: -.4em;
+	}
+
+blockquote :first-child {
+	display:inline;
+	}
+
+blockquote :last-child{
+	margin-bottom:0;
+	}
+
+blockquote:after {
+	color: #3d90c6;
+	content:close-quote;
+	font-size:4em;
+	line-height:.1em;
+	margin-left: .20em;
+	vertical-align:-.4em;
+	}
+
+blockquote p {
+	line-height: 26px;
+	}
+
+#footer {
+	color: #999;
+	text-align: center;
+	text-shadow: 1px 1px 1px rgba(255,255,255,.9);
+    padding: 50px 0 75px;
+	margin-right: 0;
+	margin-left: 0;
+	}
+
+
+.text-color-white {
+	color: #dedede !important;
+	}
+
+#signinAlert, #registerAlert  {
+	display: block;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: smaller;
+}
+	
+/* Smartphones (portrait and landscape) ----------- */
+@media all and (max-width: 500px) {
+
+	body {
+		font-size: 14px;
+		}
+
+	#welcome hr {
+		display: none;
+		}
+
+	img#logo {
+		min-width: 200px !important;
+		max-width: 100% !important;
+		height: auto !important;
+		}
+
+	h1 {
+		font-size: 32px;
+		}	
+	
+	.tagline-and-desc h1 {
+		font-size: 36px;
+		}
+
+	.tagline-and-desc p {
+		font-size: 18px;
+		}
+
+	blockquote {
+		padding: 15px;
+		margin: 15px auto;
+		font-style: italic;
+		border: none;
+		border-radius: 15px;
+		background: rgba(255,255,255,0.85);
+		quotes: "\201C""\201D""\2018""\2019";
+		}
+	
+	blockquote:before{
+		color: #3d90c6;
+		content:open-quote;
+		font-size: 4em;
+		line-height: .1em;
+		margin-right: .25em;
+		vertical-align: -.4.5em;
+		}
+
+	blockquote :first-child {
+		display:inline;
+		}
+
+	blockquote :last-child{
+		margin-bottom:0;
+		}
+
+	blockquote:after {
+		color: #3d90c6;
+		content:close-quote;
+		font-size:4em;
+		line-height:.1em;
+		margin-left: .20em;
+		vertical-align:-.4.5em;
+		}
+
+	blockquote p {
+		line-height: 26px;
+		}
+
+
+}

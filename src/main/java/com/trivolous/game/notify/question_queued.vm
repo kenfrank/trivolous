@@ -1,0 +1,19 @@
+!SUBJECT
+'${game.name}' your question was submitted
+!PLAIN
+Your question was played automatically.
+
+The other players have been notified that your question is ready. You will receive another email after all players have answered.  At any time you can go to the game to see who has answered.
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Your question was played automatically</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+The other players have been notified that your question is ready. You will receive another email after all players have answered.
+</p>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+Go to the game at any time to see who has answered and their scores.
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 

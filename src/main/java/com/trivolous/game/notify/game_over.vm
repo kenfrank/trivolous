@@ -1,0 +1,28 @@
+!SUBJECT
+'${game.name}' game over
+!PLAIN
+Game '${game.name}' is over.
+
+To See the final results and browse past questions go to the game
+
+Please give us your feedback through this short survey:
+http://www.surveymonkey.com/s/87NW3SG
+
+Thanks for playing!
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Game '${game.name}' is over</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+To see the final results and browse past questions go to the game.
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+<a style="color:#005eb8 !important; text-decoration: none;" href="http://www.surveymonkey.com/s/87NW3SG" target="_blank">Please give us your feedback through this short survey</a>
+</p>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+<b>Thanks for playing!</b>
+</p>

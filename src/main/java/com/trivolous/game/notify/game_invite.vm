@@ -1,0 +1,27 @@
+!SUBJECT
+${reminder_prefix}${game.master.name} invites you to play!
+!PLAIN
+You have been invited to play another Trivolous game!
+${game.master.name} has created the game '${game.name}'
+Description: "${game.description}"
+
+Go here to register and see the list of other players: ${baseUrl}game/game?gameid=${game.id}
+
+Please do not respond to this email.
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">You have been invited to play another Trivolous game!</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+<b>${game.master.name}</b> has created the game <b>'${game.name}'</b>.
+</p>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+<b>Description:</b> "${game.description}"
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+<b>Thanks and have fun playing!</b>
+</p>

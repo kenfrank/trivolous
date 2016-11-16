@@ -1,0 +1,14 @@
+!SUBJECT
+'${game.name}' last round complete and next question ready
+!PLAIN
+Last turn is complete, and next question is ready.
+Go to the game to see the results and then answer the next question.
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Last turn is complete, and next question is ready.</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+Go to the game to see the results and then answer the next question.
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm")

@@ -1,0 +1,136 @@
+/*
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+*/
+
+#ansbody #main {
+	padding-top: 25px !important;
+}
+
+.container {
+
+}
+
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+.question1 {
+	float: left;
+	width: 20px;
+}
+
+.question_player_answer {
+	font-size: 11px;
+	color: blue;
+}
+
+.question_my_answer {
+	font-size: 12px;
+	font-weight:bold;
+	color: red;
+}
+
+.table th.rightCell,
+.table td.rightCell {
+  text-align: right;
+}
+
+/*
+#ansbody { 
+	font-family: arial;
+	background: black;
+}
+
+#ansbody #container
+{
+	width: 100%; 
+	max-width: 440px; 
+	margin: 0 auto;
+    padding: 0;
+}
+
+#ansbody #contentbox
+{
+	border: 10px solid red;
+	background:#fff;
+    margin: 0;
+    padding: 0;
+}
+
+#ansbody #contentbox form
+{
+	margin: 0;
+}
+
+#content
+{
+	margin: 0;
+	padding: 5px;
+	background: white;
+}
+*/
+
+#ansbody #status
+{
+	margin: 15px 0 0 0;
+	padding: 0;
+	border: 0;
+}
+
+.progress {
+margin-right: 135px;
+}
+
+/*
+.progress-bar {
+	background-image: url(../img/backgrounds/white-to-transparent-gradient.png);
+	background-position: 0 -75px;
+	background-repeat: repeat-x;
+	}
+*/
+
+#ansbody .question {
+	font-size: 130%;
+	border-bottom: 2px solid green;
+	margin-bottom: 8px;
+	margin-top: 10px;
+}
+#ansbody .choice {
+	font-size: 100%;
+	margin-top: 10px;
+	padding-bottom: 8px;
+	margin-bottom: 15px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#ansbody .subbut {
+	background-color: purple;
+	color: white;
+	display: block;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: 0;
+	height: 50px;
+	width: 50%;
+	font-size: 200%;
+	font-weight: bolder;
+}
+
+/*
+#ansbody #progressbox
+{
+	border-top: 3px solid white;
+	border-left: 3px solid white;
+	border-right: 3px solid white;
+}	
+#ansbody #progressbar
+{
+	background-color: purple;
+	height: 30px;
+}
+*/

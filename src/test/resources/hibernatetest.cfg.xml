@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/trivolous_test</property>
+        <property name="hibernate.connection.username">root</property>
+    	<property name="connection.password">asdfasdfasdf</property>
+	    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>        
+        <!-- 5/30/11 changed this to false to limit logging -->
+        <property name="show_sql">false</property>
+        <!-- set to 'update' to continue to build database, use 'create' when new elements added -->
+        <!-- Create-drop clears database at end for unit testing, otherwise use update-->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- Enable Hibernate's automatic session context management (TODO : not sure if this should be enabled for Spring?)-->
+        <!--  <property name="current_session_context_class">thread</property> -->        
+        <mapping class="com.trivolous.game.domain.Member"></mapping>
+        <mapping class="com.trivolous.game.domain.Player"></mapping>
+        <mapping class="com.trivolous.game.domain.Game"></mapping>
+        <mapping class="com.trivolous.game.domain.GameComment"></mapping>
+        <mapping class="com.trivolous.game.domain.Question"></mapping>
+        <mapping class="com.trivolous.game.domain.Round"></mapping>
+        <mapping class="com.trivolous.game.domain.Turn"></mapping>
+        <mapping class="com.trivolous.game.domain.QueuedQuestion"></mapping>
+        <mapping class="com.trivolous.game.domain.QuestionImage"></mapping>
+        <mapping class="com.trivolous.game.domain.Invite"></mapping>
+    </session-factory>
+</hibernate-configuration>

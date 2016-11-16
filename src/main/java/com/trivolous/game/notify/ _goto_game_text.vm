@@ -1,0 +1,1 @@
+Go to the game here: ${baseUrl}game/game?gameid=${game.id}

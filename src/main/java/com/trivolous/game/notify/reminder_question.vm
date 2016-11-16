@@ -1,0 +1,31 @@
+!SUBJECT
+'${game.name}' reminder
+!PLAIN
+This is a reminder that the other players are waiting for you to make a question since the last turn ended $wait.  Go to the game to make your question.
+
+If you are having trouble making a question there is help in the FAQ.
+If you cannot play for an extended period of time, let the game master know. The game can be paused.
+If you can no longer play the game, you may quit by selecting the quit button from the game menu. 
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Question Reminder</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+This is a reminder that the other players are waiting for you to make a question since the last turn ended $wait.  <b><a style="color:#005eb8 !important; text-decoration: none;" href="${baseUrl}game/game?gameid=${game.id}" target="_blank">Go to the game</a> to make your question.</b>
+</p>
+
+<ul style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+	<li style="padding-bottom: 15px;">
+	If you are having trouble making a question there is <a style="color:#005eb8 !important; text-decoration: none;" href="${baseUrl}member/help" target="_blank">help in the FAQ</a>.
+	</li>
+	
+	<li style="padding-bottom: 15px;">
+	If you cannot play for an extended period of time, let the game master know. The game can be paused.
+	</li>
+	
+	<li style="padding-bottom: 15px;">
+	If you can no longer play the game, you may quit by selecting the quit button from the Game Settings. 
+	</li>
+</ul>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 

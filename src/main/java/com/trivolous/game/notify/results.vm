@@ -1,0 +1,13 @@
+!SUBJECT
+'${game.name}' round #$round.roundNumber results
+!PLAIN
+Round #$round.roundNumber of game '${game.name}' is complete.  Follow the link below to see the results.
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Round #$round.roundNumber of game '${game.name}' is complete</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+Follow the link below to see the results.
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 

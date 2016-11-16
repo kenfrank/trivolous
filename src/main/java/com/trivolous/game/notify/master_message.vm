@@ -1,0 +1,21 @@
+!SUBJECT
+'${player.game.name}' message to game master
+!PLAIN
+Message to game master for '${player.game.name}'
+${player.name} said: "${message}"
+Use this link to respond to player: mailto:${player.member.email}
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Message to Game Master for '${player.game.name}'</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+<b>${player.name}</b> said:
+</p>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+"<i>${message}</i>"
+<br><br>
+<a style="color:#005eb8 !important; text-decoration: none;" href="mailto:${player.member.email}">Email ${player.name}</a>
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 

@@ -1,0 +1,10 @@
+<html>
+<body style="font: 14px arial, sans-serif;">
+${content}
+<br>
+<p><a href="${baseUrl}game/game?gameid=${game.id}" style="font: bold 20px arial, sans-serif; color: #FFFFFF; text-decoration: none; background-color: #0066FF;">Go to the game</a></p>
+<br>
+<p><i>Please do not respond to this email.</i></p>
+<p>If you feel like you are incorrectly receiving this email please email admin@trivolous.com</p>
+</body>
+</html>

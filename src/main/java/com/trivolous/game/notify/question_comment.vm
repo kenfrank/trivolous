@@ -1,0 +1,19 @@
+!SUBJECT
+'${comment.player.game.name}' comment on question #${comment.roundNumber}
+!PLAIN
+Comment from game '${comment.player.game.name}' on the question #${comment.roundNumber}'
+
+${comment.player.name} said: "${comment.text}"
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Comment from game '${comment.player.game.name}' on question #${comment.roundNumber}'</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+<b>${comment.player.name}</b> said:
+</p>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+"<i>${comment.text}</i>"
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 

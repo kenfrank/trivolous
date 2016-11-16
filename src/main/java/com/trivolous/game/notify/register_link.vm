@@ -1,0 +1,23 @@
+!SUBJECT
+Trivolous Registration
+!PLAIN
+Please follow this link to complete your registration:
+
+${baseUrl}${link}
+
+Please do not respond to this email
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Trivolous Registration</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+Please <a style="color:#005eb8 !important; text-decoration: none;" href="${baseUrl}${link}" target="_blank">follow this link</a> or click the button below to complete your registration.
+</p>
+
+<table border="0" cellpadding="0" cellspacing="0" class="emailButton" style="background-color:#2d6ea6; border-collapse:separate !important; border-radius:5px;">
+	<tr>
+		<td align="center" valign="middle" class="emailButtonContent" style="color:#FFFFFF; font-family:Helvetica, Arial, sans-serif; font-size:18px; font-weight:bold; line-height:100%; padding-top:14px; padding-right:15px; padding-bottom:12px; padding-left:15px;">
+			<a href="${baseUrl}${link}" target="_blank" style="color:#FFFFFF; text-decoration:none;">Complete registration</a>
+		</td>
+	</tr>
+</table>

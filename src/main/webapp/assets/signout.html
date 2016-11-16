@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Trivolous</title>
+<link rel="icon" type="image/png"
+	href="/assets/img/trivolous_icon_16.png" />
+
+</head>
+
+<body>
+
+<script>
+	// FACEBOOK
+	window.fbAsyncInit = function() {
+		FB.init({
+		  appId      : '434772353234899',
+		  cookie     : true,  // enable cookies to allow the server to access 
+		                      // the session
+		  xfbml      : true,  // parse social plugins on this page
+		  version    : 'v2.2' // use version 2.2
+		});
+
+		FB.getLoginStatus(function(response) {
+		    console.log('init statusChangeCallback');
+		    console.log(response);
+		    if (response.status === 'connected') {
+				// Logged into your app and Facebook.
+				console.log('Signout of FB');
+				FB.logout(function() {
+					window.location.href = "/assets/index.html";
+				});
+		    } else {
+			    window.location.href = "/assets/index.html";	
+		    }
+		    
+		});
+
+	};  
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<h1>Logging out....</h1>
+</body>
+</html>
+
+

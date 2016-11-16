@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<script>
+	// check if remember me cookie
+	console.log("Cookies= " + document.cookie);
+	if (document.cookie.indexOf("password") > -1) {
+  			// redirect to game
+  			window.location.href = "/member/gameList";	
+		// NOTE: careful about infinite loop here if cookie login fails.  Should be cleared by server though.
+	}
+</script>
+<!--  load synchronously so that check is done before showing page -->
+<script src="//connect.facebook.net/en_US/sdk.js"></script>
+<script>
+	
+	// FACEBOOK
+	FB.init({
+	  appId      : '434772353234899',
+	  cookie     : true,  // enable cookies to allow the server to access 
+	                      // the session
+	  xfbml      : true,  // parse social plugins on this page
+	  version    : 'v2.2' // use version 2.2
+	});
+
+	FB.getLoginStatus(function(response) {
+	    console.log('init statusChangeCallback');
+	    console.log(response);
+	    if (response.status === 'connected') {
+			// Logged into your app and Facebook.
+			console.log('fbsignin');
+			$.ajax({
+			  	type: "POST",
+			  	url: "/fbsignon",
+				data: {accessToken: response.authResponse.accessToken},
+				success: function(msg) {
+					if (msg.indexOf("success") > -1) {
+			   			// redirect to game
+			   			window.location.href = "/member/gameList";	
+			   		} else {
+			   			console.log("FB auto login failed : " + msg);
+			   		}			
+				}
+			}); 			 
+	    }
+	});
+</script>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="google-site-verification" content="bOKpRUt2PFv08Ff-sei7FKIIO7Libp-n8GNlqZcwWH0" />
+<title>Trivolous</title>
+<link rel="icon" type="image/png"
+	href="https://s3.amazonaws.com/trivolous/img/trivolous_icon_16.png" />
+
+<!-- Le styles -->
+<link href='//fonts.googleapis.com/css?family=Coustard:400,900|Lato:400,700' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://s3.amazonaws.com/trivolous/css/landing.css" rel="stylesheet">
+
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+<meta property="og:url"              content="https://www.trivolous.com/" />
+<meta property="og:title"              content="Trivolous - Insider Trivia" />
+<meta property="og:description"        content="Come play the casual conversational insider trivia game!" />
+<meta property="og:image"              content="https://s3.amazonaws.com/trivolous/img/trivolous_icon_200.png" />
+    
+</head>
+
+<body>
+
+<section class="jumbotron" id="welcome">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<img id="logo" class="center-block" src="https://s3.amazonaws.com/trivolous/img/logos/trivolous_logo_trans_bg.png" width="792" height="296" alt="Trivolous">
+			</div> <!-- .col-md-* -->
+		</div> <!-- .row -->
+		
+		<hr>
+		
+		<div class="row">
+			<div class="col-sm-6 col-md-8 tagline-and-desc">
+				<h1>Insider Trivia</h1>
+		
+				<p>
+				Come play the casual online social game where players make personalized trivia for each other.
+				</p>
+				
+				<div class="social-networks center-block text-center">			
+				<p>				
+				
+				
+				<a class="twitter" href="https://twitter.com/Trivolous" target="_blank"><img src="https://s3.amazonaws.com/trivolous/img/icons/twitter.gif" width="50" height="50" alt="Twitter"></a>
+
+				<a class="facebook" href="https://www.facebook.com/pages/Trivolous/1666305153600742" target="_blank"><img src="https://s3.amazonaws.com/trivolous/img/icons/facebook.gif" width="50" height="50" alt="Facebook"></a>
+				</p>
+				</div>
+			</div> <!-- .col-md-* -->
+			
+			<div class="col-sm-6 col-md-4">
+				<div class="well theme-dark">
+					<ul class="nav nav-tabs" id="tabs">
+					  <li class="active"><a data-toggle="tab" href="#signin">Sign In</a></li>
+					  <li><a data-toggle="tab" href="#register">Register</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div id="signin" class="tab-pane fade in active">
+							<div id="signinAlert" class="alert alert-danger hidden">
+  								<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+  								<span id="signinAlertMessage"></span>
+  							</div>
+							<form class="form" id="signinForm">
+							  <div class="form-group">
+								<label class="sr-only" for="exampleInputEmail2">Email address</label>
+								<input type="email" name="email" class="form-control" id="signin_email" placeholder="Email" required>
+							  </div>
+							  <div class="form-group" id="passwordGroup">
+								<label class="sr-only" for="exampleInputPassword2">Password</label>
+								<input type="password" name="password" class="form-control" id="signin_password" placeholder="Password" required>
+							  </div>
+							  <div class="checkbox" id="rememberGroup">
+								<label>
+								  <input type="checkbox" name="remember"> Remember me
+								</label>
+							  </div>
+							  <button type="submit" id="signinbut" class="btn btn-primary btn-lg">Sign in</button>
+							</form>
+  						    <button id="fbsigninbut" type="submit" class="btn btn-default btn-facebook">Sign in with Facebook</button>
+							<button id="passwordbut" class="hidden btn btn-primary btn-lg" style="margin: 0 0 15px" >Recover password</button>
+							
+							<small><a class="text-color-white" id="forgotPassword">Oops, I forgot my password.</a></small>
+							
+						</div> <!-- #signin -->
+
+						<div id="register" class="tab-pane fade">
+
+							<div id="registerAlert" class="alert alert-danger hidden">
+  								<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+  								<span id="registerAlertMessage"></span>
+  							</div>
+							<form class="form" id="registerForm">
+							  <input type="hidden" name="gameid" value="34" class="form-control">
+							  <input type="hidden" name="gamecode" value="1573139450" class="form-control">
+			
+							  <fieldset>
+								<div class="form-group">
+								  <label class="sr-only" for="inputFirstName">First Name</label>
+								<input name="firstName" class="input-xlarge form-control" name="firstName" placeholder="First Name" autocomplete="off" required>
+								</div>
+
+								<div class="form-group">
+								  <label class="sr-only" for="inputLastName">Last Name</label>
+								  <input name="lastName" class="input-xlarge form-control" name="lastName" placeholder="Last Name" autocomplete="off" required>
+								</div>
+
+								<div class="form-group">
+								  <label class="sr-only" for="inputEmail">Email</label>
+									<input id="reg_email" name="email" class="input-xlarge form-control" name="email" placeholder="Email" autocomplete="false" required>
+								</div>
+
+								<div class="form-group">
+								  <label class="sr-only" for="input04">Password</label>
+									<input type="password" name="password" class="input-xlarge form-control" name="password" placeholder="Password" autocomplete="false"  required>
+								</div>
+
+								<p><small> <!-- class="terms" -->
+								By registering as a member, you agree to our <a class="text-color-white" href="terms.html" title="Link to Terms and Conditions" target="_blank">terms &amp; conditions</a>.
+								</small></p> 
+
+								<button type="submit" name="action" class="btn btn-primary btn-lg">Register</button>
+								
+							  </fieldset>
+							</form>
+							<button id="fbregisterbut" type="submit" class="btn btn-default btn-facebook">Register via Facebook</button>
+
+						</div> <!-- #register -->
+					</div> <!-- .tab-content -->
+				</div> <!-- .well -->
+			</div> <!-- .col-md-* -->
+				
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+</section> <!-- #welcome -->
+
+
+
+
+
+<section class="hidden row section" id="how-it-works"> <!-- landing-row-b -->
+	<div class="container">
+		<div class="col-md-12">
+			<h1>How To Play</h1>
+			<hr>
+			<!-- <p>A simple diagram here showing CREATE->(MAKE->ANSWER->SCORE) would be good.</p> -->
+			
+			<h2>Create a game and invite friends</h2>
+			<p>
+			The host creates the game by picking a theme and
+			inviting a group of players.
+			</p>
+			
+			<div class="well">
+				<p>
+				Here are some example themes:
+				</p>
+				<ul>
+					<li>"Class of '87" -- played with your high school or college friends.</li>
+					<li>"The Smith Family" -- about your own family leading	up to a reunion.</li>
+					<li>"The Gators Summer 2013 Season" -- reminisce over the last season with your team mates.</li>
+				</ul>
+			</div> <!-- .well -->
+			
+			<div class="row">
+				<div class="col-sm-3 col-md-3">	
+					<h2>Question</h2>
+					
+					<div class="image-container">
+					
+					</div> <!-- .image-container -->
+					
+					<p>
+					One player ('the author') makes a multiple choice
+					question that some players should know and may challenge others.
+					Pictures can be included.
+					</p>
+				</div> <!-- .col-md-* -->				
+				
+				<div class="col-sm-3 col-md-3">			
+					<h2>Answer</h2>
+					
+					<div class="image-container">
+					
+					</div> <!-- .image-container -->
+					
+					<p>
+					The other players answer the question in a timed session. 
+					Players are notified (by email for example) when it is
+					time to take their turn, and can play at their leisure.
+					</p>
+				</div> <!-- .col-md-* -->				
+				
+				<div class="col-sm-3 col-md-3">
+					<h2>Score</h2>
+					
+					<div class="image-container">
+					
+					</div> <!-- .image-container -->
+					
+					<p>
+					After all players have answered the score is calculated.
+					The scoring is designed to reward players for answering correctly, and punish 
+					authors if they make a question that no one could answer.
+					</p>
+				</div> <!-- .col-md-* -->				
+				
+				<div class="col-sm-3 col-md-3">
+					<h2>Repeat</h2>
+					
+					<div class="image-container">
+					
+					</div> <!-- .image-container -->
+					
+					<p>
+					The game goes through the cycle of
+					make->answer->score until each player has a turn at being the
+					author one time (or more for longer games).
+					</p>
+				</div> <!-- .col-md-* -->
+			</div> <!-- .row -->
+		</div> <!-- .col-md-* -->
+	</div> <!-- .container -->
+</section> <!-- #how-it-works -->
+
+
+
+
+
+<section class="row section landing-row-c theme-bg-blue"> <!-- id="how-it-works" -->
+	<div class="container">
+		<h1>How To Play</h1>
+		
+		<hr>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+			
+				<div class="col-content text-center">
+					<h2>Create a game and invite friends</h2>
+					<p class="lead">
+					The host creates the game by picking a theme and
+					inviting a group of players.
+					</p>
+		
+					<div class="hidden well">
+						<p>
+						Here are some example themes:
+						</p>
+						<ul>
+							<li>"Class of '87" -- played with your high school or college friends.</li>
+							<li>"The Smith Family" -- about your own family leading	up to a reunion.</li>
+							<li>"The Gators Summer 2013 Season" -- reminisce over the last season with your team mates.</li>
+						</ul>
+					</div> <!-- .well -->
+				</div> <!-- .col-content -->
+
+				<img src="https://s3.amazonaws.com/trivolous/img/landing/create-game.jpg" alt="Create Game" width="800" style="max-width: 90% !important; height: auto !important; display: block; margin: 30px auto -26px !important;">
+				
+			</div> <!-- .col-* -->
+		</div> <!-- .row -->
+
+		<hr>
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+			
+				<div class="col-content text-center">
+					<h2>Question</h2>
+					<p class="lead">
+					During a round of the game, each player takes a turn making a multiple choice question for the other players. 
+					You can also add a photo.
+					</p>
+				</div> <!-- .col-content -->
+				
+				<img src="https://s3.amazonaws.com/trivolous/img/landing/create-question.jpg" alt="Create Question" width="800" style="max-width: 90% !important; height: auto !important; display: block; margin: 30px auto -26px !important;">
+
+			</div> <!-- .col-* -->
+		</div> <!-- .row -->
+		
+		<hr>
+		
+		<div class="row">
+			<div class="col-xs-6 col-sm-8 col-md-8">
+			
+				<div class="col-content">
+					<h2>Answer</h2>
+					<p class="lead">
+					The other players answer the question in a timed session. Players are notified (by email or Facebook) 
+					when it is time to take their turn — they can play at their leisure.
+					</p>
+					
+					<p>
+					You can play a Trivolous game on your phone, tablet, or computer any time, anywhere. Have fun challenging your friends and family and sharing your answers.
+					</p>
+				</div> <!-- .col-content -->
+
+			</div> <!-- .col-* -->
+			
+			<div class="col-xs-6 col-sm-4 col-md-4">
+		
+				<img src="https://s3.amazonaws.com/trivolous/img/landing/iphone-answer-session.png" alt="Answer" width="300" style="max-width: 90% !important; height: auto !important;">
+				
+			</div> <!-- .col-* -->
+		</div> <!-- .row -->
+
+		<hr>
+		
+		<div class="row">		
+			<div class="col-xs-12 col-sm-12 col-md-12">
+			
+				<div class="col-content">
+					<h2>Score</h2>
+					<p class="lead">
+					After all players have answered, the score is calculated.
+					</p>
+					
+					<p> 
+					The scoring is designed to reward players for answering correctly, and discourage authors from making a question that no one could answer.
+					</p>
+				</div> <!-- .col-content -->
+
+				<img src="https://s3.amazonaws.com/trivolous/img/landing/player-scores.jpg" alt="Player Scores" width="800" style="max-width: 90% !important; height: auto !important; display: block; margin: 30px auto -26px !important;">
+
+			</div> <!-- .col-* -->
+		</div> <!-- .row -->
+		
+	</div> <!-- .container -->
+</section> <!-- .section -->
+
+
+
+
+
+<section class="row section" id="player-reviews"> <!-- landing-row-b -->
+	<div class="container">
+		<div class="col-md-12">
+			<h1>What players are saying...</h1>
+			<hr>
+				
+			<blockquote>
+			<p>I am not one to play on-line games, ridiculously busy, grumpy, etc… but this one is fun!</p>
+			</blockquote>
+			
+			<blockquote>
+			<p>It was a fun way get back in touch with family I don't get a chance to see very often.</p>
+			</blockquote>					
+			
+			<blockquote>
+			<p>It left me wanting to play again.</p>
+			</blockquote>
+		</div> <!-- .col-md-* -->
+	</div> <!-- .container -->
+</section> <!-- #player-reviews -->
+	
+	
+	
+
+
+
+<section class="hidden row section" id="player-reviews" style="background-color: #e3ef6b; box-shadow: none; border-bottom: 1px solid rgba(0,0,0,0.15); background-image: url(https://s3.amazonaws.com/trivolous/img/backgrounds/transparent-to-black-gradient.png); background-position: 0 400px"> <!-- landing-row-b -->
+	<div class="container">
+		<div class="col-md-12">
+			<h1>What players are saying...</h1>
+			<hr>
+				
+			<blockquote>
+			<p>I am not one to play on-line games, ridiculously busy, grumpy, etc… but this one is fun!</p>
+			</blockquote>
+			
+			<blockquote>
+			<p>It was a fun way get back in touch with family I don't get a chance to see very often.</p>
+			</blockquote>					
+			
+			<blockquote>
+			<p>It left me wanting to play again.</p>
+			</blockquote>
+		</div> <!-- .col-md-* -->
+	</div> <!-- .container -->
+</section> <!-- #player-reviews -->
+	
+	
+
+
+	
+
+<footer class="row" id="footer">
+	<div class="container">
+		<div class="col-md-12">
+			<p>Copyright &copy; 2015 Trivolous.com. All rights reserved.</p>
+			
+			<img id="logo" class="center-block" src="https://s3.amazonaws.com/trivolous/img/logos/trivolous_logo_trans_bg.png" width="300" height="" alt="Trivolous">
+		</div> <!-- .col-md-* -->
+	</div> <!-- .container -->
+</footer>
+
+
+<div id="regModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Welcome to Trivolous!</h4>
+      </div>
+      <div class="modal-body">
+        <p>A welcome message was sent to your email.  Please make sure you received it successfully.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="/member/gameList" type="button" class="btn btn-default">Continue</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="regInviteModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Welcome to Trivolous!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Accept the invite on the home page and enjoy the game!</p>
+      </div>
+      <div class="modal-footer">
+        <a href="/member/gameList" type="button" class="btn btn-default">Continue</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="https://s3.amazonaws.com/trivolous/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+<div id="fb-root"></div>
+<script>
+	$(document).ready(function(){
+		
+		console.log("ON READY!!!!");
+		// signon
+		$('#signinAlert button').click(function() {$('#signinAlert').hide();});
+		$('#registerAlert button').click(function() {$('#registerAlert').hide();});
+
+		
+		function signinSuccess(msg) {
+		   		if (msg.indexOf("success") == -1) {
+			   			$('#signinAlert').removeClass('hidden');
+			   			$('#signinAlert').show();
+			   		    $('#signinAlertMessage').text(msg);
+			   		} 
+			   		else {
+			   			// redirect to game
+			   			window.location.href = "/member/gameList";	
+			   		}			
+		}
+		
+		function registerSuccess(msg) {
+			if (msg.indexOf("success") == -1) {
+		   			$('#registerAlert').removeClass('hidden');
+		   			$('#registerAlert').show();
+		   		    $('#registerAlertMessage').text(msg);
+		   		} 
+		   		else {
+		   			if (msg.indexOf("invite") == -1) {
+		   				$('#regModal').modal();
+		   			}
+		   			else {
+		   				$('#regInviteModal').modal();
+		   			}
+		   		}			
+		}
+		
+		$( "#signinForm" ).submit(function( event ) {
+ 			  // Stop form from submitting normally
+  				event.preventDefault();
+  			    $.ajax({
+   				   	type: "POST",
+  				   	url: "/signon",
+					data: $(this).serialize(),
+   				   	success: signinSuccess
+   				 }); 			    
+		});
+		
+		// register
+		$( "#registerForm" ).submit(function( event ) {
+ 			  // Stop form from submitting normally
+  				event.preventDefault();
+  			    $.ajax({
+   				   	type: "POST",
+  				   	url: "/register",
+					data: $(this).serialize(),
+   				   	success: registerSuccess
+   				 }); 			    
+		});
+		
+		// forgot password 
+
+		var $signin_tab = $('a[href="#signin"]').closest('li');
+		
+		$(document).on('click touchstart', '#forgotPassword', function(e) {
+			$('#passwordGroup').hide();
+			$('#rememberGroup').hide();
+			$('#forgotPassword').hide();
+			$('#signinbut').hide();
+			$('#passwordbut').show().removeClass('hidden');
+			$("#fbsigninbut").hide();
+			$('#signinForm').prepend('<p id="recoverPasswordText" style="font-size: 14px;">We\'ll send you an email with your info.</p>');
+			$('#signin').append('<small id="returnToSignin"><a class="text-color-white" href="#">Return to sign in</a><small>');
+
+			e.preventDefault();	
+		});
+
+		$(document).on('click touchstart', 'a[href="#signin"], #returnToSignin .text-color-white', function(e) {
+			// $signin_tab.trigger();
+			$('#passwordGroup').show(); // .addClass('hidden');
+			$('#rememberGroup').show(); // .addClass('hidden');
+			$('#forgotPassword').show();
+			$('#signinbut').show();
+			$('#passwordbut').hide().addClass('hidden');
+			$('#signinForm #recoverPasswordText').remove();
+			$('#signin #returnToSignin').remove();
+			$("#fbsigninbut").show();
+			e.preventDefault();
+		});
+		
+		$('#passwordbut').click(function(e) {
+
+	    	console.log(" data = " + $("#signin_email").serialize());
+		    $.ajax({
+			   	type: "POST",
+			   	url: "/forgot",
+				data: $("#signin_email").serialize(),
+				   	success: function(msg) {
+			   			$('#signinAlert').removeClass('hidden');
+			   			$('#signinAlert').show();
+			   		    $('#signinAlertMessage').text(msg);
+
+						// reset Sign in form
+						$('#passwordGroup').show();
+						$('#rememberGroup').show();
+						$('#forgotPassword').show();
+						$('#signinbut').show();
+						$('#passwordbut').hide().addClass('hidden');
+						$('#signinForm #recoverPasswordText').remove();
+						$('#signin #returnToSignin').remove();
+    				}
+			 });
+			 
+			 e.preventDefault();	    
+		});
+		
+		function fbreg(accessToken) {
+		    console.log('fbreg');
+	        $.ajax({
+	      	   	type: "POST",
+	      	   	url: "/fbregister",
+	      		data: {accessToken: accessToken, email: $('#reg_email').val()},
+	      		success: registerSuccess
+	      	 }); 			    
+		}
+
+
+		function fbsignin(accessToken) {
+		    console.log('fbsignin');
+	        $.ajax({
+	      	   	type: "POST",
+	      	   	url: "/fbsignon",
+	      		data: {accessToken: accessToken},
+	      		success: signinSuccess
+	      	 }); 			    
+		}
+		
+		function fblogin(onAccessToken) {
+			FB.getLoginStatus(function(response) {
+				    console.log('statusChangeCallback');
+				    console.log(response);
+				    // The response object is returned with a status field that lets the
+				    // app know the current login status of the person.
+				    // Full docs on the response object can be found in the documentation
+				    // for FB.getLoginStatus().
+				    if (response.status === 'connected') {
+				      // Logged into your app and Facebook.
+				      onAccessToken(response.authResponse.accessToken);
+				    } else { 
+				      // The person is logged into Facebook, but not your app.  Or not logged into FB.
+				    	FB.login(function(response) {
+						    console.log('LoginCallback');
+						    console.log(response);
+					        if (response.status === 'connected') {
+					          // Logged into your app and Facebook.
+					          onAccessToken(response.authResponse.accessToken);
+					        }
+				    	}, {scope: 'email'});
+				    }
+			});
+		}	
+		
+		
+		$("#fbregisterbut").click(function() {
+		   console.log('fbbut click');
+		   fblogin(fbreg);
+	   });
+
+	   $("#fbsigninbut").click(function() {
+		   console.log('fbbut signin click');
+		   fblogin(fbsignin);
+	   });
+	   
+		
+		
+		
+		// auto fill email for registration
+		var url = window.location.href;
+		var emailKey="email=";
+		var emailParamIndex = url.lastIndexOf(emailKey);
+		if (emailParamIndex != -1) {
+			var email = url.slice(emailParamIndex+emailKey.length);
+			$('#reg_email').val(email);
+			$('#tabs a[href="#register"]').tab('show') 
+		}
+	});
+
+</script>
+
+<!-- 
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+ -->  
+
+</body>
+</html>

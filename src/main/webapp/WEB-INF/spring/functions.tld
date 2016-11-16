@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib 
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+
+    <display-name>Custom Functions</display-name>    
+    <tlib-version>1.0</tlib-version>
+    <short-name>trivolousfuncs</short-name>
+    <uri>http://trivolous.com/functions</uri>
+
+    <function>
+        <name>durationMinHourDays</name>
+        <function-class>com.trivolous.game.domain.DurationFormat</function-class>
+        <function-signature>String daysHoursMinsLongStatic(long)</function-signature>
+    </function>
+    
+    <function>
+        <name>timeAgo</name>
+        <function-class>com.trivolous.game.domain.DurationFormat</function-class>
+        <function-signature>String timeAgoStatic(java.util.Date)</function-signature>
+    </function>
+    
+    <function>
+        <name>upToNCharacters</name>
+        <function-class>com.trivolous.game.domain.DurationFormat</function-class>
+        <function-signature>String upToNCharacters(java.lang.String,int)</function-signature>
+    </function>
+    
+    <function>
+        <name>text2html</name>
+        <function-class>com.trivolous.game.domain.DurationFormat</function-class>
+        <function-signature>String text2html(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+        <name>fmtPts</name>
+        <function-class>com.trivolous.game.domain.DurationFormat</function-class>
+        <function-signature>String fmtPts(int)</function-signature>
+    </function>
+    
+    
+</taglib>

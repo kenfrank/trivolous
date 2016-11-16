@@ -1,27 +1,27 @@
  
 #**Trivolous** - Insider Trivia  
-Its a casual online social game where players make personalized trivia for each other.   Its a fully functional web site and was hosted for over a year.  It was designed using Java Spring 3.x and Hibernate.  Below is information from the help/faq page:
+Trivolous is a casual online social game where players make personalized trivia for each other.   The design is based on Java Spring 3.x and Hibernate.  Hundreds of people played it as a fully functional site hosted for over a year, but it failed to go viral so I am putting it here.  This project could be helpful to make a similar casual trivia game, a casual game framework, or just as example code.  Below is information from the help/faq page that describes the game play:
 
 ##Game Overview
 **Host** - Starts the game by inviting Players and making the first question. Also decides how many questions each player will make.
 **Asker** - The person making the question in each round.   The Host is always the first Asker.
 **Players** - Everyone answering the question.
-**Notices** - An email or message sent via Facebook that tells you what to do next.
+**Notices** - An email or message sent via Facebook that tells you what to do next. 
 **Round** - A Round is complete when every Player has answered the current question.
 **Cycle** - A Cycle is complete when all Players have taken a turn as the Asker and created a question.
 
 ##Getting Started
 * YOU'RE THE HOST!
 Create a game by inviting other Players on Trivolous.com or
-	via Facebook&rsquo;s Trivolous app, and make the first question. All
+	via Facebook's Trivolous app, and make the first question. All
 	Players will get a Notice.
-* YOU&rsquo;RE INVITED!
+* YOU'RE INVITED!
 As soon as you accept, you will get to place your bet (see
 	scoring below) and answer the question. All invited Playershave to
 	accept, decline, or be removed by the Host for the game to keep
 	going. Notices are sent to players who haven't responded.
 HOST! You might want to send a personal message if people
-	aren&rsquo;t responding!
+	aren't responding!
 * YOU'VE ANSWERED!
 Wait until everyone has answered. After all Players have
 	answered, a Notice is sent with everyone's scores.
@@ -35,7 +35,7 @@ A new Cycle starts and questions keep being asked and answered
 A Notice is sent with the final scores! Posturing and shaming
 	are optional :)
 * FIRST TIME PLAYERS!
-Now that you&rsquo;ve played a game you can be the HOST for a
+Now that you've played a game you can be the HOST for a
 	new game! Think of a fun topic, invite some Players(new and/or
 	existing players) and continue the fun!
 
@@ -47,7 +47,8 @@ other players can answer and answering correctly. The Player with
 the highest score at the end wins. Before you answer a question you 
 will be asked to bet 5, 10 or 25 points
 * YOU GOT IT RIGHT!
-You win the points you bet.  If you answered the quickest, and you were not the only one to get it right, you get a 5 point bonus.
+You win the points you bet.  If you answered the quickest, and you were not 
+the only one to get it right, you get a 5 point bonus.
 * YOU GOT IT WRONG BUT OTHER PLAYERS GOT IT RIGHT!
 You lose your bet to the Asker
 * NO ONE GOT IT RIGHT!
@@ -55,7 +56,7 @@ Players win their bets even though they got it wrong.
 ASKER -	you do not want this to happen since other players will gain points
 	and you will not!
 * EVERYONE GAVE UP!
-All Players win their bets.  
+All Players win their bets.
 ASKER - your fellow players rejected your question. You do not want this to happen since
 	everyone else will gain points except you!
 
@@ -78,8 +79,6 @@ You want to make an educated guess since you want to add to
 	you are wrong you could give them points and put them ahead of you.
 	But if the Asker is far ahead or behind you it might be worth a
 	guess.
-
-
 					
 						
 # FAQ - Frequently Asked Questions
@@ -119,8 +118,6 @@ There is a quit button in the game menu. If you are stuck making a question plea
 It's a combination of 'trivia' and 'frivolous', like the game.
 ###Is Internet Explorer 8 (IE8) supported?
 Sorry it is not.  Trivolous was built using modern web technologies which are not supported by IE8.  IE8 is going end of life in 2015 so we decided not to go too far out of our way to support it.  If possible upgrade your browser as you are missing out on other great websites too.
-								
 ###How do I contact you guys?
-We would love to hear your feedback!  Reach out to us on social media:
-	<a href="https://www.facebook.com/pages/Trivolous/1666305153600742" target="_blank"><img src="//s3.amazonaws.com/trivolous/img/icons/facebook.gif" width="50" height="50" alt="Facebook">
+We would love to hear your feedback!  Reach out to us on social media: https://www.facebook.com/pages/Trivolous/1666305153600742 
 									

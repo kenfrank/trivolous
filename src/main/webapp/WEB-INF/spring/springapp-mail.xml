@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+	<!-- Mail service -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="localhost" />
+    </bean>
+
+	<bean id="notificationFormatter" class="com.trivolous.game.notify.NotificationFormatter">
+		<property name="velocityEngine" ref="velocityEngine" />
+		<property name="baseUrl" value="http://www.trivolous.com/" />
+	</bean>
+
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<value>
+				resource.loader=class
+				class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+			</value>
+		</property>
+	</bean>
+
+	<bean id="mySenderEmail" class="com.trivolous.game.notify.MySenderEmail">
+		<property name="mailSender" ref="mailSender" />
+	    <property name="from" value="notifier@trivolous.com" />
+	    <property name="dkimPrivateKeyPath" value="/home/tomcat7/private.key.der"/>    
+	</bean>
+
+	<bean id="mySenderFacebook" class="com.trivolous.game.notify.MySenderFacebook">
+	</bean>
+
+	<bean id="mySenderList" class="com.trivolous.game.notify.MySenderList">
+		<property name="senders">
+			<list>
+				<!-- Test with 2 print senders for now -->
+				<ref bean="mySenderEmail" />
+				<ref bean="mySenderFacebook" />
+			</list>
+		</property>
+	</bean>
+ 	
+	
+	<bean id="notificationSender" class="com.trivolous.game.notify.NotificationSender">
+		<property name="mySender" ref="mySenderList" />
+		<property name="notificationFormatter" ref="notificationFormatter" />
+	</bean>
+
+
+</beans>

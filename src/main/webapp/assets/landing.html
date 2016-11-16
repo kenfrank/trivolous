@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Trivolous</title>
+<link rel="icon" type="image/png"
+	href="img/trivolous_icon_16.png" />
+
+<!-- Le styles -->
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="css/trivolous.css" rel="stylesheet">
+
+<style>
+body {
+	background-color: white;
+	padding: 0;
+} 
+.landing-row-a {
+	background-color: #e3ef6b; //e6e986;
+}
+
+.landing-row-a .btn {
+	margin-top: 20px;
+}
+
+.landing-row-b {
+	background-color: #f5f5f5; //#a4c3c7; // #5692cd;
+	font-size: x-large;
+    padding: 30px 0;
+ }
+.landing-row-b h1 {
+	font-size: 60px;
+}
+.landing-row-c {
+	background-color: #CAE5FF; //#5692cd;
+    padding: 30px 0;
+}
+.landing-row-c img {
+	width: 100%;
+}
+.landing-row-c h1 {
+	font-size: 60px;
+}
+footer {
+    padding: 50px 0;
+	font-size: x-large;
+}
+hr {
+	border-top: 3px solid #000000;
+}
+</style>
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+
+<body>
+
+
+	<div class="row landing-row-a">
+		<div class="container">
+			<div class="col-xs-6">
+				<img class="center-block" src="img/LogoVert.png">
+			</div>
+			<div class="col-xs-6">
+				<h1>Come play the leisurely online social
+					game where players make personalized trivia for each other.</h1>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="well">
+							<h1>Sign In</h1>
+							<div class="row">
+								<div class="col-xs-12">
+									<div class="well">
+										<form class="form-inline" action="game.html" >
+										  <div class="form-group">
+										    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+										    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+										  </div>
+										  <div class="form-group">
+										    <label class="sr-only" for="exampleInputPassword2">Password</label>
+										    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+										  </div>
+										  <div class="checkbox">
+										    <label>
+										      <input type="checkbox"> Remember me
+										    </label>
+										  </div>
+										  <button type="submit" class="btn btn-primary">Sign in</button>
+										</form>
+										<a href="#">Oops, I forgot my password.</a>
+									</div>
+								</div>
+
+								<div class="col-xs-12">
+									<div class="well">
+										<a href="#" class="btn btn-primary">Signin Using Facebook</a> </p>
+									</div>
+								</div>
+							</div>	
+						</div>	
+					</div>	
+				</div>	
+			</div>	
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="well">
+						<h1>New to Trivolous?</h1>
+					    <a class="btn btn-primary" href="memberRegister.html">Register Here</a>				</div>
+				</div>	
+			</div>	
+		</div>
+	</div>
+
+	<div class="row landing-row-b">
+		<div class="container">
+			<div class="col-xs-10">
+				<h1>How it works</h1>
+				<hr>
+				<p>A simple diagram here showing CREATE->(MAKE->ANSWER->SCORE) would be good.</p>
+				<p><b>CREATE</b> - The host creates the game by picking a theme and
+					inviting a group of players. Here are some example themes:</p>
+				<ul>
+					<li>"Class of '87" -- played with your high school or college friends.</li>
+					<li>"The Smith Family" -- about your own family leading	up to a reunion.</li>
+					<li>"The Gators Summer 2013 Season" -- reminisce over the last season with your team mates.</li>
+				</ul>
+				<p><b>MAKE</b> - One player ('the author') makes a multiple choice
+					question that some players should know and may challenge others.
+					Pictures can be included.</p>
+				<p><b>ANSWER</b> - The other players answer the question in a timed session. 
+					Players are notified (by email for example) when it is
+					time to take their turn, and can play at their leisure.</p>
+				<p><b>SCORE</b> - After all players have answered the score is calculated.
+					The scoring is designed to reward players for answering correctly, and punish 
+					authors if they make a question that no one could answer.</p>
+				<p><b>REPEAT</b> - The game goes through the cycle of
+					make->answer->score until each player has a turn at being the
+					author one time (or more for longer games).
+			</div>
+		</div>
+	</div>
+	<div class="row landing-row-c">
+		<div class="container">
+			<h1>Example questions:</h1>
+			<hr>
+			<div class="col-lg-6">
+				<p>Taken a game played between the guests coming to Thanksgiving dinner at
+					Ken and Jamies's house:</p>
+				<div class="well well-lg">
+					<img src="img/landingEx1.jpg" />
+					<h4>
+						I have to admit sometimes when a baby picture comes up in a random
+						slide show of our family photos I struggle to figure out who it
+						is. This is one of those pictures. Can you tell who it is? <span
+							class="question_my_answer">- by You</span>
+					</h4>
+					<ul class="list-unstyled">
+						<li><span class="question1">&nbsp;</span> <span>1:</span>
+							Saire <span class="question_player_answer">Caitlin</span> <span
+							class="question_player_answer">Micaela</span></li>
+						<li><span class="question1"><span
+								class="glyphicon glyphicon-ok"></span></span> <span>2:</span> Ronan <span
+							class="question_player_answer"> Jamie </span> <span
+							class="question_player_answer"> Samuel </span> <span
+							class="question_player_answer"> Scott </span></li>
+						<li><span class="question1">&nbsp;</span> <span>3:</span>
+							Declan</li>
+						<li><span class="question1">&nbsp;</span> <span>?:</span> I
+							give up <span class="question_player_answer"> Susan </span></li>
+					</ul>
+					<p>
+						<b>Time Limit: </b> <span>60 seconds</span>
+					</p>
+					<p>
+						<b>Hint: </b> 'Who's who (Jamie you better get this!)'
+					</p>
+					<p>
+						<b>Explanation: </b> 'That's Ronan in October of 2011 at 6 months.
+						I hope someone else had trouble with this too or I am going to
+						feel like a bad dad.'
+					</p>
+					<h3>Comments:</h3>
+					<p>
+						"<i>Haha I changed my mind at the last minute and got it
+							wrong, it could be any one of them!</i>" <b>- Caitlin</b>
+					</p>
+
+					<p>
+						"<i>Are you kidding? I knew it was supposed to be one of your
+							kids, but my first thought was that it was a picture of Jamie.</i>" <b>-
+							Susan</b>
+					</p>
+					<p>
+						"<i>I almost put Saire but I'll never confess!</i>" <b>- Jamie</b>
+					</p>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<p>Taken from a game of friends remininicing about their days on the Bronx Science Speech team:</p>
+				<div class="well well-lg">
+				<h4>
+					Which accent did I do a poor impression of for a drama reading? <span
+						class="question_player_answer">- by Micaela</span>
+				</h4>
+				<ul class="list-unstyled">
+					<li><span class="question1">&nbsp;</span> <span>1:</span> A
+						young Irish hussy</li>
+					<li><span class="question1"><i class="glyphicon glyphicon-ok"></i></span> <span>2:</span>
+						A dippy Southern belle <span class="question_player_answer">
+							Slavica </span> <span class="question_player_answer"> Katharine </span>
+						<span class="question_player_answer"> Sharda </span></li>
+					<li><span class="question1">&nbsp;</span> <span>3:</span> An
+						gruff Australian grandmother <span class="question_player_answer">
+							Sonya </span></li>
+					<li><span class="question1">&nbsp;</span> <span>4:</span> A
+						wise Mexican soothsayer</li>
+					<li><span class="question1">&nbsp;</span> <span>?:</span> I
+						give up</li>
+				</ul>
+				<p>
+					<b>Time Limit: </b> <span>60 seconds</span>
+				</p>
+				<p>
+					<b>Hint: </b> 'Meryl Streep I am not!'
+				</p>
+				<p>
+					<b>Explanation: </b> 'I played Babe from &quot;Crimes of the
+					Heart&quot; which takes place in Mississippi. In the scene Babe
+					tries to kill herself by climbing in the oven after shooting her
+					husband. Sissy Spacek played her in the film version. Pretty sure
+					my southern relatives would have been unimpressed by my accent!'
+				</p>
+				<h3>Comments</h3>
+				<p>
+					"<i>Oh come now! I seem to remember your Southern accent as one
+						of your best! Ha ha, I love that you remember the details of your
+						scene so well!</i>" <b>- Slavica</b>
+				</p>
+				<p>
+					"<i>You have a great accent!</i>" <b>- Katharine</b> 
+				</p>
+				<p>
+					"<i>You did dippy Southern belles proud!</i>" <b>- Sharda</b>
+				</p>
+				<p>
+					"<i>Also I love that you incorporated the word &quot;hussy&quot;
+						into the choices. </i>" <b>- Sharda</b>
+				</p>
+				<p>
+					"<i>those adjectives were highly distracting - almost went with
+						Mexican ;)</i>" <b>- Sonya</b>
+				</p>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="row landing-row-b">
+		<div class="container">
+			<div class="col-xs-10">
+				<h1>What players are saying...</h1>
+				<hr>
+					<br>
+					<p class="text-left"><i>"I am not one to play on-line games, ridiculously busy, grumpy, etc.......but this one is fun!"</i></p> 
+					<br>
+					<p class="text-center"><i>"It was a fun way get back in touch with family I don't get a chance to see very often."</i></p>
+					<br>
+					<p class="text-right"><i>"It left me wanting to play again."</i></p>
+					<br>
+			</div>
+		</div>
+	</div>
+	<div class="row landing-row-a">
+	<footer>
+		<div class="container">
+		<p>&copy; Trivolous.com 2014</p>
+		</div>
+	</footer>
+	</div>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

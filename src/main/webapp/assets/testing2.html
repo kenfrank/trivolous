@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" type="image/png" href="/assets/img/trivolous_icon_16.png" />
+
+<title>Trivolous</title>
+
+<!-- Le styles -->
+<link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/assets/css/dropzone.css" rel="stylesheet">
+<!--  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"> -->
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<h1>Testing</h1>
+<div class="hidden">
+	<form action="/image/player" method="post" enctype="multipart/form-data">
+	    <input name="file" type="file" multiple />
+	    <button type="submit">Submit</button>
+	</form>
+</div>
+
+		 
+<form id="myAwesomeDropzone" action="/image/player" enctype="multipart/form-data" method="post" class="dropzone">
+	<div class="fallback">
+	    <input name="file" type="file" multiple />
+	    <button type="submit">Submit</button>
+	</div>
+</form>
+
+
+<div id="showImage" class="hidden">
+	<h1>Image:</h1>
+	<img id="pic" />
+	<a id="removePic">Remove</a>
+</div>
+
+<script>
+$(document).ready(function () {
+    Dropzone.autoDiscover = false;
+    //Simple Dropzonejs 
+    $("#myAwesomeDropzone").dropzone({
+    	forceFallback: true,
+        url: "/image/player",
+        init: function () {
+        	console.log("my dz init");
+        	this.on("fallback", function(file) { 
+        		$("#myAwesomeDropzone").attr('action', '/image/player/old');
+        	});
+        },
+        createImageThumbnails : false,
+        maxFiles: 1,
+        acceptedFiles: "image/*",
+        success: function (file, response) {
+            console.log("loaded " + response.file);
+			$("#pic").attr("src", "/image/player");
+			$("#showImage").removeClass('hidden');
+			$("#myAwesomeDropzone").hide();
+            this.removeAllFiles();
+			// could call disable on this also to remove listeners etc...
+        },
+        error: function (file, response) {
+            alert("Could not load picture");
+            this.removeAllFiles();
+            console.log("FAILED! "); 
+        } 
+    });
+    $("#removePic").click(function() {
+    	$.get( "/image/player/delete", function( data ) {
+				$("#showImage").addClass('hidden');
+				$("#myAwesomeDropzone").show();
+    		});
+    });
+});
+</script>
+
+<script src="/assets/js/dropzone.js"></script>	
+</body>
+</html>

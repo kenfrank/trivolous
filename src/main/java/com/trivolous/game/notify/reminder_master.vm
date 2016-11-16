@@ -1,0 +1,41 @@
+!SUBJECT
+'${game.name}' master reminder
+!PLAIN
+Game Master Reminder for game '${game.name}'
+
+This reminder is sent daily to the game master when a game is stalling.
+The last action taken on this game was $wait.  Take a look at the game
+to see which players need to take their turns.
+
+As game master it is your job to keep the game going, or end it.  The suggested
+options for doing so are:
+1. Send a comment to 'All Players' reminding those who need to play to take their
+turns.  The message will go to all players including those who already took their
+turn, but this additional social pressure can be helpful.
+2. Contact the player directly by clicking on their email in the player table of the admin view.
+3. Remove the player from the game from the game admin tab.  Note: A game must have a minimum of 3 players.
+4. Pause the game for continuation later if a player is on vacation for example.  This is done via a button in the game admin view.
+5. End the game.  This is done via a button on the game admin view.
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Game Master reminder for game '${game.name}'</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+This reminder is sent daily to the game master when a game is stalling. The last action taken on this game was $wait.  Take a look at the game to see which players need to take their turns.
+</p>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+As game master it is your job to keep the game going, or end it.  The suggested options for doing so are:
+</p>
+
+<ol style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+	<li style="padding-bottom: 15px;"><b>Send a comment to 'All Players'</b> reminding those who need to play to take their
+	turns.  The message will go to all players including those who already took their
+	turn, but this additional social nudge can be helpful.</li>
+	<li style="padding-bottom: 15px;"><b>Contact the player directly</b> by clicking on their email in the player table of the Game Settings.</li>
+	<li style="padding-bottom: 15px;"><b>Remove the player from the game</b> from the Game Settings.  Note: A game must have a minimum of 3 players.</li>
+	<li style="padding-bottom: 15px;"><b>Pause the game</b> for continuation later if a player is on vacation for example.  This is done via a button in the Game Settings.</li>
+	<li style="padding-bottom: 15px;"><b>End the game.</b>  This is done via a button in Game Settings.</li>
+</ol>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 

@@ -1,0 +1,14 @@
+!SUBJECT
+'${game.name}' question #${game.currentRound.roundNumber} is ready
+!PLAIN
+Question is ready for game '${game.name}'
+$game.asker.name has made the next question. Go to the game to answer it.
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Question is ready for game '${game.name}'</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+<b>$game.asker.name</b> has made the next question. Go to the game to answer it.
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 

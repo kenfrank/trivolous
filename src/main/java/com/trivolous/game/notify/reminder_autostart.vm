@@ -1,0 +1,23 @@
+!SUBJECT
+'${game.name}' about to autostart
+!PLAIN
+Game '${game.name}' will autostart in one more day.
+
+If there are enough players, the game will begin, if not, the game will be aborted.
+
+If you wish to give more time for players to join, go to the admin page and edit your game to add more days
+to the autostart countdown.  But remember players who have not joined yet are sent a reminder everyday, so 
+be careful not annoy anyone.
+!HTML
+
+<h1 style="color:#498fc6 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:34px; font-weight:normal; line-height: 38px; text-align:center !important; padding-top:5px; padding-bottom:5px;">Game '${game.name}' will autostart in one more day.</h1>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+If there are enough players, the game will begin, if not, the game will be cancelled.
+</p>
+
+<p style="color:#333333 !important; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:normal; line-height: 20px; text-align:left !important; padding-top:5px; padding-bottom:5px;">
+If you wish to give more time for players to join, go to the Game Settings and edit your game to add more days to the autostart countdown.
+</p>
+
+#parse("com/trivolous/game/notify/_goto_game_html.vm") 
